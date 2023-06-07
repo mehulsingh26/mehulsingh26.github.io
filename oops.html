@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .background-image img {
+      height: 100%;
+      width: 100%;
+    }
+    
+    .call-icon-container {
+      position: fixed;
+      left: 50%;
+      bottom: 25%;
+      transform: translateX(-50%);
+    }
+    
+    .call-icon {
+      width: 100%;
+      transition: transform 1s;
+    }
+    
+    .call-icon:hover {
+      transform: scale(1.1);
+    }
+    #video {
+      position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <img class="background-image" src="pfp.jpeg" alt="Background Image">
+  
+  <div class="call-icon-container">
+    <img class="call-icon" src="callicon.png" alt="Call Icon">
+  </div>
+  
+  <video id="video" style="display: none;" controls>
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    var callIcon = document.querySelector('.call-icon');
+    var video = document.getElementById('video');
+    
+    callIcon.addEventListener('click', function(e) {
+      e.preventDefault();
+      callIcon.style.transform = 'translateY(-180px)';
+      video.style.display = 'block';
+      video.play();
+    });
+  </script>
+</body>
+</html>
